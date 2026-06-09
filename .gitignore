@@ -33,3 +33,8 @@ coverage.xml
 # OS
 .DS_Store
 Thumbs.db
+
+# Internal dev docs (not for public repo)
+PLAN.md
+LAUNCH.md
+PROMPT.md
