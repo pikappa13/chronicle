@@ -1,13 +1,11 @@
 from __future__ import annotations
 
-import os
-import tempfile
 from datetime import datetime, timezone
 
 import git
 import pytest
 
-from chronicle.reader import Commit, read_commits
+from chronicle.reader import read_commits
 
 
 @pytest.fixture()

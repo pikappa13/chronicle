@@ -9,14 +9,36 @@ description = "Your git history, told as a story."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
-keywords = ["git", "cli", "developer-tools", "productivity", "standup"]
+keywords = [
+    "git",
+    "cli",
+    "developer-tools",
+    "productivity",
+    "standup",
+    "git-history",
+    "version-control",
+    "automation",
+    "summary",
+    "reporting",
+    "terminal",
+    "devtools",
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Utilities",
+]
+authors = [
+    { name = "Patrick Battistini", email = "superfenis@gmail.com" },
 ]
 dependencies = [
     "gitpython>=3.1",
@@ -28,6 +50,7 @@ dependencies = [
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
+    "ruff>=0.4",
 ]
 
 [project.scripts]
@@ -37,6 +60,7 @@ chronicle = "chronicle.cli:app"
 Homepage = "https://github.com/pikappa13/chronicle"
 Repository = "https://github.com/pikappa13/chronicle"
 Issues = "https://github.com/pikappa13/chronicle/issues"
+Changelog = "https://github.com/pikappa13/chronicle/releases"
 
 [tool.hatch.version]
 path = "chronicle/__init__.py"
@@ -46,3 +70,10 @@ packages = ["chronicle"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

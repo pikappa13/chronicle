@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 import json
-from datetime import date
-from typing import Optional
-
 import sys
+from typing import Optional
 
 from rich.console import Console
 from rich.panel import Panel
@@ -54,7 +52,8 @@ def format_terminal(week: WeekGroup) -> None:
     for day in week.days:
         day_label = Text(day.date.strftime("%A, %b %d"), style="bold blue")
         bar = Text(_bar(day.total_commits, max_commits), style="cyan")
-        count_label = Text(f"  {day.total_commits} commit{'s' if day.total_commits != 1 else ''}", style="dim")
+        plural = "s" if day.total_commits != 1 else ""
+        count_label = Text(f"  {day.total_commits} commit{plural}", style="dim")
 
         console.print(day_label, bar, count_label)
 

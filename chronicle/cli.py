@@ -17,7 +17,7 @@ from .formatter import (
     format_standup,
     format_terminal,
 )
-from .grouper import DayGroup, group_by_day, group_by_week
+from .grouper import group_by_day, group_by_week
 from .reader import read_commits
 from .scanner import find_repos
 
@@ -95,7 +95,9 @@ def _collect_repos(
     raise typer.Exit(1)
 
 
-def _load_commits(repos: list[str], since: datetime, until: datetime, author: Optional[str]) -> list:
+def _load_commits(
+    repos: list[str], since: datetime, until: datetime, author: Optional[str]
+) -> list:
     from .reader import Commit
     all_commits: list[Commit] = []
     warned_author: set[str] = set()
@@ -131,7 +133,9 @@ def _output(fmt: str, week, yesterday=None, today=None) -> None:
     elif fmt == "json":
         print(format_json(week))
     else:
-        err_console.print(f"[red]Unknown format:[/red] {fmt}. Choose: terminal, markdown, slack, json")
+        err_console.print(
+            f"[red]Unknown format:[/red] {fmt}. Choose: terminal, markdown, slack, json"
+        )
         raise typer.Exit(1)
 
 
@@ -193,9 +197,9 @@ def _parse_relative_date(when: str) -> datetime:
 def today(
     repo: Optional[str] = typer.Option(None, "--repo", "-r", help="Path to git repo"),
     author: Optional[str] = typer.Option(None, "--author", "-a", help="Filter by author email"),
-    format: str = typer.Option("terminal", "--format", "-f", help="terminal | markdown | slack | json"),
+    format: str = typer.Option("terminal", "--format", "-f", help="terminal | markdown | slack | json"),  # noqa: E501
     all_repos: bool = typer.Option(False, "--all", help="Scan all repos in home directory"),
-    dir: Optional[str] = typer.Option(None, "--dir", "-d", help="Directory to scan when using --all"),
+    dir: Optional[str] = typer.Option(None, "--dir", "-d", help="Directory to scan when using --all"),  # noqa: E501
 ) -> None:
     """Show what you did today."""
     repos = _collect_repos(repo, all_repos, dir)
@@ -246,7 +250,9 @@ def standup(
             elif sys.platform == "darwin":
                 subprocess.run(["pbcopy"], input=text.encode(), check=True)
             else:
-                subprocess.run(["xclip", "-selection", "clipboard"], input=text.encode(), check=True)
+                subprocess.run(
+                    ["xclip", "-selection", "clipboard"], input=text.encode(), check=True
+                )
             console.print("[dim]Copied to clipboard.[/dim]")
         except Exception:
             err_console.print("[yellow]Could not copy to clipboard.[/yellow]")

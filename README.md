@@ -4,6 +4,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/chronicle-git)](https://pypi.org/project/chronicle-git/)
 [![Python](https://img.shields.io/pypi/pyversions/chronicle-git)](https://pypi.org/project/chronicle-git/)
+[![CI](https://github.com/pikappa13/chronicle/actions/workflows/ci.yml/badge.svg)](https://github.com/pikappa13/chronicle/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Downloads](https://img.shields.io/pypi/dm/chronicle-git)](https://pypi.org/project/chronicle-git/)
 
@@ -20,6 +21,11 @@ And you open five tabs, scroll through Slack, squint at git log, and reconstruct
 No AI. No cloud. No account. No config. Works on any repo you already have.
 
 ---
+
+## Requirements
+
+- Python 3.9+
+- Git installed and available in `$PATH`
 
 ## Install
 

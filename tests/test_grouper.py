@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from datetime import date, datetime, timezone
 
-import pytest
-
 from chronicle.grouper import group_by_day, group_by_week
 from chronicle.reader import Commit
 

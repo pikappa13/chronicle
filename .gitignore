@@ -24,6 +24,11 @@ coverage.xml
 
 # Build tools
 .hatch/
+*.dist-info/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
 
 # IDEs
 .vscode/
